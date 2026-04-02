@@ -748,7 +748,56 @@
     nav { padding: 0 20px; }
     .nav-links { display: none; }
     .cal-wrap { grid-template-columns: 1fr; }
-    .hero-title { font-size: 28px; }
+
+    /* ── ヒーローセクション：スマホ最適化 ── */
+    #hero {
+      padding: 72px 20px 36px;
+      min-height: 100svh;
+    }
+    .hero-tag {
+      font-size: 11px;
+      padding: 4px 14px;
+      margin-bottom: 16px;
+    }
+    .logo-wrap {
+      width: 160px;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-size: 26px;
+      line-height: 1.25;
+      letter-spacing: 0.02em;
+      word-break: keep-all;
+    }
+    .hero-sub {
+      font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    /* キャッチコピー行も余白を詰める */
+    .hero-tagline {
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    /* ── 日付タブ：スマホで小さく1列キープ ── */
+    .date-pills {
+      gap: 8px;
+    }
+    .pill {
+      padding: 10px 12px;
+      min-width: 0;
+      flex: 1;
+      border-radius: 10px;
+    }
+    .pill-session {
+      font-size: 9px;
+      margin-bottom: 4px;
+      letter-spacing: 0.06em;
+    }
+    .pill-date {
+      font-size: 15px;
+    }
   }
 
   /* ── MODAL ── */
