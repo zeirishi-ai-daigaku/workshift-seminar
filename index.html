@@ -1524,37 +1524,80 @@
       </div>
 
       <!-- STEP M6: 参加予定（会員）← Step7 -->
+      <!-- STEP M6: 満足度（会員） -->
       <div class="survey-step" id="step-m6">
-        <div class="survey-step-label">Step 7 / 7</div>
+        <div class="survey-step-label">Step 7 / 8</div>
+        <div class="survey-q">税理士AI大学全体について、あなたの満足度を教えてください <span style="color:#f87171;">*</span></div>
+        <div class="survey-q-sub">以下の中から、あなたの気持ちに最も近いものを選んでください。</div>
+        <div class="survey-options" id="m6sat-options">
+          <label class="survey-option" onclick="selectRadio(this,'qm6sat')">
+            <input type="radio" name="qm6sat" value="5点：非常に満足（期待以上の価値があった）">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label">5点：非常に満足（期待以上の価値があった）</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qm6sat')">
+            <input type="radio" name="qm6sat" value="4点：満足（良いコミュニティだと思う）">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label">4点：満足（良いコミュニティだと思う）</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qm6sat')">
+            <input type="radio" name="qm6sat" value="3点：どちらともいえない（良い面も悪い面もある）">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label">3点：どちらともいえない（良い面も悪い面もある）</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qm6sat')">
+            <input type="radio" name="qm6sat" value="2点：やや不満（改善してほしい点が多い）">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label">2点：やや不満（改善してほしい点が多い）</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qm6sat')">
+            <input type="radio" name="qm6sat" value="1点：不満（期待に応えられていない）">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label">1点：不満（期待に応えられていない）</span>
+          </label>
+        </div>
+        <div style="margin-top:16px; margin-bottom:8px;">
+          <div style="font-size:14px; color:rgba(255,255,255,0.8); margin-bottom:8px;">そのスコアをつけた理由を教えていただけますか？</div>
+          <textarea class="survey-textarea" id="m6sat-reason" placeholder="回答を入力"></textarea>
+        </div>
+        <div class="survey-nav">
+          <button class="btn-back" onclick="goBack('m6')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('m6')">次へ →</button>
+        </div>
+      </div>
+
+      <!-- STEP M7: 参加予定（会員・最終） -->
+      <div class="survey-step" id="step-m7">
+        <div class="survey-step-label">Step 8 / 8</div>
         <div class="survey-q">特別集中講座への参加予定</div>
         <div class="survey-q-sub">参加できる回をすべてお選びください（原則として全回ご参加をお願いしています）</div>
-        <div class="survey-options" id="m6d-options">
-          <label class="survey-option" onclick="selectCheck(this,'m6d-1',event)">
-            <input type="checkbox" id="m6d-1" value="4/13">
+        <div class="survey-options" id="m7d-options">
+          <label class="survey-option" onclick="selectCheck(this,'m7d-1',event)">
+            <input type="checkbox" id="m7d-1" value="4/13">
             <span class="survey-opt-mark-check"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">第1回</span>4/13（月）18:00〜20:00　破壊と体験</span>
           </label>
-          <label class="survey-option" onclick="selectCheck(this,'m6d-2',event)">
-            <input type="checkbox" id="m6d-2" value="4/20">
+          <label class="survey-option" onclick="selectCheck(this,'m7d-2',event)">
+            <input type="checkbox" id="m7d-2" value="4/20">
             <span class="survey-opt-mark-check"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">第2回</span>4/20（月）18:00〜20:00　習慣と自走</span>
           </label>
-          <label class="survey-option" onclick="selectCheck(this,'m6d-3',event)">
-            <input type="checkbox" id="m6d-3" value="5/12">
+          <label class="survey-option" onclick="selectCheck(this,'m7d-3',event)">
+            <input type="checkbox" id="m7d-3" value="5/12">
             <span class="survey-opt-mark-check"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">第3回</span>5/12（火）18:00〜20:00　視座の転換</span>
           </label>
-          <label class="survey-option" onclick="selectCheck(this,'m6d-none',event)">
-            <input type="checkbox" id="m6d-none" value="none">
+          <label class="survey-option" onclick="selectCheck(this,'m7d-none',event)">
+            <input type="checkbox" id="m7d-none" value="none">
             <span class="survey-opt-mark-check"></span>
             <span class="survey-opt-label" style="color:var(--muted)">いずれも参加が難しい</span>
           </label>
         </div>
-        <div class="survey-conditional" id="m6d-reason-wrap">
-          <textarea class="survey-textarea" id="m6d-reason" placeholder="参加できない回がある場合、差し支えなければ理由をお聞かせください（任意）"></textarea>
+        <div class="survey-conditional" id="m7d-reason-wrap">
+          <textarea class="survey-textarea" id="m7d-reason" placeholder="参加できない回がある場合、差し支えなければ理由をお聞かせください（任意）"></textarea>
         </div>
         <div class="survey-nav">
-          <button class="btn-back" onclick="goBack('m6')">← 戻る</button>
+          <button class="btn-back" onclick="goBack('m7')">← 戻る</button>
           <button class="btn-next" onclick="submitSurvey()">お申込みを送信 ✓</button>
         </div>
       </div>
@@ -2173,10 +2216,10 @@ buildCalendar('may-grid', mayDays, mayHL);
 // ── Survey ──────────────────────────────────────────
 let surveyData = {};
 let surveyPath = []; // ナビ履歴（戻るボタン用）
-let surveyTotal = 7; // 会員:7 / 非会員:9（パス選択時に更新）
+let surveyTotal = 8; // 会員:8 / 非会員:9（パス選択時に更新）
 
 // ステップIDと進捗番号のマッピング
-// 会員:1-7、非会員:1-9（同じステップIDでも進捗番号が異なる場合はsurveytotalで調整）
+// 会員:1-8、非会員:1-9
 const STEP_PROGRESS = {
   '0': 1,
   'm1':2,  'n1':2,
@@ -2185,7 +2228,7 @@ const STEP_PROGRESS = {
   'm4':5,  'n3':5,
   'm5':6,  'n4':6,
   'm6':7,  'n5':7,
-           'n6':8,
+  'm7':8,  'n6':8,
            'n7':9,
   'thanks':10
 };
@@ -2195,7 +2238,7 @@ function openSurvey(preselect) {
   document.body.style.overflow = 'hidden';
   surveyData = {};
   surveyPath = [];
-  surveyTotal = 7; // デフォルトリセット
+  surveyTotal = 8; // デフォルトリセット
   document.querySelectorAll('.survey-step').forEach(s => s.classList.remove('active'));
   // ラジオボタンをリセット
   document.querySelectorAll('input[name="q0"]').forEach(r => { r.checked = false; });
@@ -2206,7 +2249,7 @@ function openSurvey(preselect) {
     // ボタン側で区分を事前選択 → Step0をスキップしてStep1へ
     surveyData._isMember = (preselect === 'member');
     surveyData.memberType = preselect === 'member' ? 'サロン会員' : '非会員（1回無料体験）';
-    surveyTotal = surveyData._isMember ? 7 : 9;
+    surveyTotal = surveyData._isMember ? 8 : 9;
     const radio = document.querySelector(`input[name="q0"][value="${preselect}"]`);
     if (radio) {
       radio.checked = true;
@@ -2259,7 +2302,7 @@ function goNext(step) {
     if (!val) { alert('参加区分をお選びください'); return; }
     surveyData.memberType = val.value === 'member' ? 'サロン会員' : '非会員（1回無料体験）';
     surveyData._isMember = (val.value === 'member');
-    surveyTotal = surveyData._isMember ? 7 : 9; // パスに応じてステップ総数を設定
+    surveyTotal = surveyData._isMember ? 8 : 9; // パスに応じてステップ総数を設定
     surveyPath.push('0');
     showStep(val.value === 'member' ? 'm1' : 'n1');
 
@@ -2304,6 +2347,15 @@ function goNext(step) {
     surveyData.m5k_opinion = document.getElementById('m5k-opinion').value.trim();
     surveyPath.push('m5');
     showStep('m6');
+
+  } else if (step === 'm6') {
+    // 満足度（Step7）→ m7へ
+    const satVal = document.querySelector('input[name="qm6sat"]:checked');
+    if (!satVal) { alert('満足度をお選びください'); return; }
+    surveyData.satisfaction = satVal.value;
+    surveyData.satisfaction_reason = document.getElementById('m6sat-reason').value.trim();
+    surveyPath.push('m6');
+    showStep('m7');
 
   // ── 非会員フロー ──
   } else if (step === 'n1') {
@@ -2413,21 +2465,21 @@ function selectCheck(el, id, event) {
   cb.checked = !cb.checked;
   el.classList.toggle('selected', cb.checked);
   // "いずれも参加が難しい" は排他
-  if (id === 'm6d-none' && cb.checked) {
-    ['m6d-1','m6d-2','m6d-3'].forEach(i => {
+  if (id === 'm7d-none' && cb.checked) {
+    ['m7d-1','m7d-2','m7d-3'].forEach(i => {
       document.getElementById(i).checked = false;
       document.getElementById(i).closest('.survey-option').classList.remove('selected');
     });
-  } else if (['m6d-1','m6d-2','m6d-3'].includes(id) && cb.checked) {
-    document.getElementById('m6d-none').checked = false;
-    document.getElementById('m6d-none').closest('.survey-option').classList.remove('selected');
+  } else if (['m7d-1','m7d-2','m7d-3'].includes(id) && cb.checked) {
+    document.getElementById('m7d-none').checked = false;
+    document.getElementById('m7d-none').closest('.survey-option').classList.remove('selected');
   }
   // 理由テキスト表示条件
-  const noneChecked = document.getElementById('m6d-none').checked;
-  const anyUnchecked = !document.getElementById('m6d-1').checked ||
-                       !document.getElementById('m6d-2').checked ||
-                       !document.getElementById('m6d-3').checked;
-  document.getElementById('m6d-reason-wrap').classList.toggle('show', noneChecked || anyUnchecked);
+  const noneChecked = document.getElementById('m7d-none').checked;
+  const anyUnchecked = !document.getElementById('m7d-1').checked ||
+                       !document.getElementById('m7d-2').checked ||
+                       !document.getElementById('m7d-3').checked;
+  document.getElementById('m7d-reason-wrap').classList.toggle('show', noneChecked || anyUnchecked);
 }
 
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbyTwoO0GpcvDM0MjgF5q4BwhZjlJAtS-Uw_QBaO76xOBjshPvfgOSwZ8g1MkVddZ9hr/exec';
@@ -2435,11 +2487,11 @@ const GAS_URL = 'https://script.google.com/macros/s/AKfycbyTwoO0GpcvDM0MjgF5q4Bw
 function submitSurvey() {
   // 最終ステップのバリデーション
   if (surveyData._isMember) {
-    // M6: 参加予定（チェックボックス）
-    const checks = Array.from(document.querySelectorAll('#m6d-options input[type=checkbox]:checked'));
+    // M7: 参加予定（最終ステップ）
+    const checks = Array.from(document.querySelectorAll('#m7d-options input[type=checkbox]:checked'));
     if (checks.length === 0) { alert('参加予定をお選びください'); return; }
     surveyData.dates = checks.map(c => c.value).join('、');
-    surveyData.dates_reason = document.getElementById('m6d-reason').value.trim();
+    surveyData.dates_reason = document.getElementById('m7d-reason').value.trim();
   } else {
     // N7: 顧問先業種（非会員の最終ステップ）
     const n7val = document.querySelector('input[name="qn7"]:checked');
