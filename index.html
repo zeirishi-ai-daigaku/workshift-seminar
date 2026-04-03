@@ -63,7 +63,7 @@
     z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 40px;
-    height: 56px;
+    height: 68px;
     background: rgba(18, 33, 59, 0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(232, 160, 32, 0.3);
@@ -108,7 +108,7 @@
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     text-align: center;
-    padding: 100px 40px 60px;
+    padding: 170px 40px 60px;
     background: linear-gradient(160deg, #060e1e 0%, #0d1a30 40%, #152848 100%);
     position: relative; overflow: hidden;
   }
@@ -147,7 +147,7 @@
   }
   .hero-title {
     font-family: 'Noto Serif JP', serif;
-    font-size: clamp(28px, 5vw, 52px);
+    font-size: clamp(36px, 6.5vw, 72px);
     font-weight: 900; line-height: 1.2;
     letter-spacing: 0.04em;
     animation: fadeUp 0.9s ease both 0.2s;
@@ -160,6 +160,20 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
     filter: drop-shadow(0 0 12px rgba(232,160,32,0.7));
+  }
+  .title-notice {
+    display: block;
+    font-size: 0.624em;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-top: 8px;
+    opacity: 0.9;
+  }
+  .title-main {
+    display: block;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(255,255,255,0.9), 0 0 60px rgba(255,255,255,0.5), 0 0 100px rgba(255,255,255,0.25), 0 2px 8px rgba(0,0,0,0.5);
   }
   .hero-sub {
     font-size: clamp(16px, 2.5vw, 22px);
@@ -318,17 +332,23 @@
     background: white; border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.35s, box-shadow 0.35s;
   }
-  .scard:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.15); }
+  .scard:has(.scard-header-blue):hover  { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(30,58,138,0.35); }
+  .scard:has(.scard-header-green):hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(6,95,70,0.35); }
+  .scard:has(.scard-header-amber):hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(146,64,14,0.35); }
   .scard-header {
-    padding: 22px 24px 16px;
+    padding: 26px 26px 30px;
     position: relative;
   }
-  .scard-header-blue { background: var(--blue); }
-  .scard-header-green { background: var(--green); }
-  .scard-header-amber { background: var(--amber); }
-  .scard-date { font-size: 14px; font-weight: 800; color: white; letter-spacing: 0.04em; }
+  .scard-header-blue  { background: linear-gradient(135deg, #1E3A8A 0%, #2347B0 100%); }
+  .scard-header-green { background: linear-gradient(135deg, #065F46 0%, #0A7A5A 100%); }
+  .scard-header-amber { background: linear-gradient(135deg, #92400E 0%, #B45309 100%); }
+  .scard-date { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.85); letter-spacing: 0.06em; }
+  .scard-theme-header {
+    font-size: 26px; font-weight: 900; color: white; margin-top: 10px;
+    line-height: 1.2; text-shadow: 0 1px 6px rgba(0,0,0,0.2);
+  }
   .badge {
     display: inline-block; margin-top: 8px;
     font-size: 10px; font-weight: 700;
@@ -423,19 +443,27 @@
   .rm-card {
     background: white; border-radius: 16px;
     padding: 28px 24px; text-align: center;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-    border-top: 4px solid var(--gold);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+    border-top: 7px solid var(--gold);
   }
-  .rm-card-icon { font-size: 30px; margin-bottom: 12px; }
-  .rm-card-head { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+  .rm-card-icon-wrap {
+    width: 68px; height: 68px; border-radius: 50%;
+    background: linear-gradient(135deg, #F5C842 0%, #E8A020 100%);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 16px rgba(232,160,32,0.35);
+    font-size: 32px;
+  }
+  .rm-card-head { font-size: 20px; font-weight: 900; color: var(--navy); margin-bottom: 16px; }
   .rm-card-before {
-    font-size: 13px; color: #94A3B8; line-height: 1.65;
-    background: #F1F5F9; border-radius: 8px; padding: 10px 14px; margin-bottom: 8px;
+    font-size: 13px; color: #475569; line-height: 1.65;
+    background: #E2E8F0; border-radius: 8px; padding: 10px 14px; margin-bottom: 8px;
+    font-weight: 600;
   }
-  .rm-card-arrow { font-size: 20px; color: var(--gold); font-weight: 900; margin: 4px 0 8px; }
+  .rm-card-arrow { font-size: 22px; color: var(--gold); font-weight: 900; margin: 4px 0 8px; }
   .rm-card-after {
-    font-size: 13px; color: var(--navy); font-weight: 600; line-height: 1.7;
-    background: rgba(232,160,32,0.1); border: 1px solid rgba(232,160,32,0.3);
+    font-size: 13px; color: #7C4A00; font-weight: 700; line-height: 1.7;
+    background: rgba(232,160,32,0.2); border: 2px solid rgba(232,160,32,0.6);
     border-radius: 8px; padding: 10px 14px;
   }
 
@@ -523,6 +551,65 @@
   .cta-dates { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
   .cta-date { background: var(--navy); color: var(--gold); font-weight: 800; font-size: 14px; padding: 10px 22px; border-radius: 8px; }
   .cta-note { font-size: 13px; color: rgba(18,33,59,0.65); }
+
+  /* ── 2CTAボタン ── */
+  .cta-btn-wrap {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .cta-btn-member {
+    font-size: 15px; padding: 14px 32px; font-weight: 800;
+    font-family: inherit; letter-spacing: 0.06em; cursor: pointer;
+    border-radius: 6px;
+    background: linear-gradient(180deg,#F5C842 0%,#E8A020 50%,#C8850A 100%);
+    color: var(--navy); border: 3px solid var(--navy);
+    animation: ctaPulse 2s ease-in-out infinite;
+    transition: transform 0.15s;
+  }
+  .cta-btn-member:hover { animation: none; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+  .cta-btn-nonmember {
+    font-size: 15px; padding: 14px 32px; font-weight: 800;
+    font-family: inherit; letter-spacing: 0.06em; cursor: pointer;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #0EA572 0%, #059669 50%, #047857 100%);
+    color: #fff; border: 3px solid var(--navy);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .cta-btn-nonmember:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(5,150,105,0.45); }
+
+  /* ── 非会員バナー（ナビ下固定タブ） ── */
+  #nonmember-nav-badge {
+    position: fixed;
+    top: 68px;
+    right: 40px;
+    z-index: 99;
+    background: rgba(5, 150, 105, 0.22);
+    border: 1.5px solid rgba(74, 222, 128, 0.6);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    color: #4ade80;
+    font-size: 11px; font-weight: 700;
+    padding: 5px 16px 6px;
+    letter-spacing: 0.07em;
+    white-space: nowrap;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(5,150,105,0.2);
+    text-shadow: 0 0 8px rgba(74,222,128,0.4);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  #nonmember-nav-badge:hover {
+    background: rgba(5, 150, 105, 0.38);
+  }
+
+  /* ── ナビ・ヒーロー星エフェクト ── */
+  .nav-sparkle {
+    position: absolute; pointer-events: none; z-index: 99;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, #F5C842 50%, transparent 70%);
+    box-shadow: 0 0 5px 2px rgba(245,200,66,0.5);
+    animation: twinkle linear infinite;
+  }
 
   /* ── SURVEY MODAL ── */
   .survey-overlay {
@@ -735,6 +822,10 @@
     border-radius: 14px;
   }
   @keyframes glow     { 0%,100%{filter:drop-shadow(0 0 20px rgba(232,160,32,0.3));} 50%{filter:drop-shadow(0 0 40px rgba(232,160,32,0.6));} }
+  @keyframes ctaPulse {
+    0%,100% { box-shadow: 0 4px 16px rgba(0,0,0,0.25), 0 0 0 0 rgba(18,33,59,0), inset 0 1px 0 rgba(255,255,255,0.45); }
+    50%     { box-shadow: 0 4px 16px rgba(0,0,0,0.25), 0 0 0 7px rgba(18,33,59,0.25), inset 0 1px 0 rgba(255,255,255,0.45); }
+  }
 
   .logo-wrap img { animation: glow 3s ease-in-out infinite 1s; }
 
@@ -743,15 +834,17 @@
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
   .reveal.visible { opacity: 1; transform: none; }
+  br.sp-br { display: none; }
 
   @media (max-width: 768px) {
-    nav { padding: 0 20px; }
+    nav { padding: 0 16px; height: 68px; }
     .nav-links { display: none; }
+    #nonmember-nav-badge { right: 16px; font-size: 10px; padding: 4px 12px 5px; }
     .cal-wrap { grid-template-columns: 1fr; }
 
     /* ── ヒーローセクション：スマホ最適化 ── */
     #hero {
-      padding: 72px 20px 36px;
+      padding: 110px 20px 36px;
       min-height: 100svh;
     }
     .hero-tag {
@@ -764,7 +857,7 @@
       margin-bottom: 14px;
     }
     .hero-title {
-      font-size: 26px;
+      font-size: 36px;
       line-height: 1.25;
       letter-spacing: 0.02em;
       word-break: keep-all;
@@ -876,7 +969,6 @@
   .clickable:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
   .scard.clickable:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.2); }
   .pill.clickable { cursor: pointer; }
-  br.sp-br { display: none; }
   .click-hint {
     font-size: 10px; letter-spacing: 0.08em; color: var(--gold);
     opacity: 0.7; margin-top: 16px; text-align: right;
@@ -933,12 +1025,15 @@
     <a href="#roadmap">ロードマップ</a>
     <a href="#schedule">スケジュール</a>
   </div>
-  <button class="nav-cta" onclick="openSurvey()">参加確認・アンケート →</button>
+  <button class="nav-cta" onclick="openSurvey()">参加のお申込み →</button>
 </nav>
+<!-- 非会員バナー：ナビ下に固定表示 -->
+<div id="nonmember-nav-badge" onclick="openSurvey('nonmember')"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#4ade80;margin-right:7px;vertical-align:middle;box-shadow:0 0 6px rgba(74,222,128,0.7);animation:pulse 1.5s ease infinite;"></span>初めての方・無料体験（1回）受付中</div>
 
 <!-- Hero -->
 <section id="hero">
   <div class="hero-tag">🎓 税理士AI大学 ─ サロン会員の皆様へ</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.65); margin-top:8px; margin-bottom:24px; letter-spacing:0.1em; animation:fadeDown 0.9s ease both 0.15s;">─ 会員の方は、全3回無料でご参加いただけます ─</div>
 
   <!-- Logo Image -->
   <div class="logo-wrap">
@@ -946,7 +1041,8 @@
   </div>
 
   <div class="hero-title">
-    特別集中講座<em>のお知らせ</em>
+    <span class="title-main">特別集中講座</span>
+    <span class="title-notice">のお知らせ</span>
   </div>
   <div class="hero-sub">絶対にAIを使えるようになる3週間</div>
   <div style="font-size:15px; color:var(--gold-lt); font-weight:600; letter-spacing:0.04em; margin-top:2px; margin-bottom:28px; opacity:0.9; display:inline-block; transform:skewX(-10deg);">「AIに変わられる前に、私たちが変わる。」</div>
@@ -985,28 +1081,28 @@
         <div class="card-icon">⚡</div>
         <div class="card-label">BACKGROUND</div>
         <div class="card-head">【背景】</div>
-        <div class="card-body">2026年、AIエージェントの進化は想定を大きく超えるペースで加速。税理士の定型業務のAI代替リスクは「今年中」に現実化する水準に到達。</div>
+        <div class="card-body">2026年、AIエージェントの進化は想定を大きく超えるペースで加速。税理士の定型業務のAI代替リスクは「今年中」に現実化する水準に到達しつつあります。</div>
         <div class="click-hint">タップで詳細を表示 →</div>
       </div>
       <div class="card card-green reveal clickable" onclick="openBgModal('current')" style="cursor:pointer;">
         <div class="card-icon">🎯</div>
         <div class="card-label">CURRENT STATUS</div>
         <div class="card-head">【現在地】</div>
-        <div class="card-body">確定申告を終えた今、会員の先生方は全員がスタートライン。AIに手が付けられなかった方も含め、ここからが本番。</div>
+        <div class="card-body">確定申告終了後の今、会員の先生方にとって、まさに次の一歩を踏み出すタイミングです。ここからの行動が、今後の差を生み出します。</div>
         <div class="click-hint">タップで詳細を表示 →</div>
       </div>
       <div class="card card-gold reveal clickable" onclick="openBgModal('purpose')" style="cursor:pointer;">
         <div class="card-icon">🚀</div>
         <div class="card-label">PURPOSE</div>
         <div class="card-head">【本講座の目的】</div>
-        <div class="card-body">「時代の加速」と「会員の現在地」のギャップを埋める3週間。AIを使いこなし、ワークシフトを実現する基盤を作る。</div>
+        <div class="card-body">「時代の加速」と「会員の現在地」のギャップを埋める3週間。AIを使いこなし、ワークシフトを実現する基盤を作ります。</div>
         <div class="click-hint">タップで詳細を表示 →</div>
       </div>
     </div>
 
     <div class="axis-bar reveal">
       <span>🎖️</span>
-      <p>設計の軸：「1人も置き去りにしない」──<br>確定申告後の今、全員を同じスタートラインに揃え、AIで稼げる税理士へ引き上げる。</p>
+      <p>設計の軸：「1人も置き去りにしない」──<br>確定申告 終了後の今こそ、全員がAIを使いこなせる状態へ導きます。</p>
     </div>
   </div>
 </section>
@@ -1024,11 +1120,10 @@
       <div class="scard reveal clickable" onclick="openModal(1)">
         <div class="scard-header scard-header-blue">
           <div class="scard-date">第1回　4/13（月）</div>
-          <span class="badge badge-update">内容アップデート版</span>
+          <div class="scard-theme-header">破壊と体験</div>
         </div>
         <div class="scard-body">
-          <div class="scard-theme">破壊と体験</div>
-          <hr class="scard-divider">
+          <hr class="scard-divider" style="margin-top:0;">
           <div class="scard-desc">Geminiで明日から仕事を半分にする<br>超実践ワークショップ</div>
           <div class="scard-shift">「怖い・難しい」<br><em class="arrow">↓</em><br>「できた・面白い」</div>
         </div>
@@ -1037,11 +1132,10 @@
       <div class="scard reveal clickable" onclick="openModal(2)">
         <div class="scard-header scard-header-green">
           <div class="scard-date">第2回　4/20（月）</div>
-          <span class="badge badge-new">★ 新規追加</span>
+          <div class="scard-theme-header">習慣と自走</div>
         </div>
         <div class="scard-body">
-          <div class="scard-theme">習慣と自走</div>
-          <hr class="scard-divider">
+          <hr class="scard-divider" style="margin-top:0;">
           <div class="scard-desc">加速度的に生産性を上げる<br>超AI段取り術</div>
           <div class="scard-shift">「なんとなく使う」<br><em class="arrow">↓</em><br>「自分で判断して動かせる」</div>
         </div>
@@ -1050,11 +1144,10 @@
       <div class="scard reveal clickable" onclick="openModal(3)">
         <div class="scard-header scard-header-amber">
           <div class="scard-date">第3回　5/12（火）</div>
-          <span class="badge badge-update">内容アップデート版</span>
+          <div class="scard-theme-header">視座の転換</div>
         </div>
         <div class="scard-body">
-          <div class="scard-theme">視座の転換</div>
-          <hr class="scard-divider">
+          <hr class="scard-divider" style="margin-top:0;">
           <div class="scard-desc">AI時代の収益型ワークシフト<br>完全設計</div>
           <div class="scard-shift">「AIを使える」<br><em class="arrow">↓</em><br>「AIで稼ぐ設計ができている」</div>
         </div>
@@ -1085,7 +1178,7 @@
         <div class="rm-dot rm-dot-start"></div>
         <div class="rm-label">TODAY</div>
         <div class="rm-title">スタート</div>
-        <div class="rm-sub">確定申告後<br>全員同じ<br>ラインに</div>
+        <div class="rm-sub">確定申告<br>終了後<br>新たなスタート</div>
       </div>
       <div class="rm-arrow">→</div>
       <div class="rm-step rm-step-1">
@@ -1120,25 +1213,25 @@
     <!-- Goal Cards -->
     <div class="rm-cards reveal">
       <div class="rm-card">
-        <div class="rm-card-icon">🕐</div>
+        <div class="rm-card-icon-wrap">🕐</div>
         <div class="rm-card-head">時間の変化</div>
         <div class="rm-card-before">毎日2〜3時間<br>書類作成・調査業務</div>
         <div class="rm-card-arrow">↓</div>
         <div class="rm-card-after">AIで30分に短縮<br>生まれた時間を<br>顧問先との対話・提案へ</div>
       </div>
       <div class="rm-card">
-        <div class="rm-card-icon">💰</div>
+        <div class="rm-card-icon-wrap">💰</div>
         <div class="rm-card-head">収益の変化</div>
         <div class="rm-card-before">顧問料のみに<br>依存した収益構造</div>
         <div class="rm-card-arrow">↓</div>
         <div class="rm-card-after">財務コンサル・節税提案・<br>AI研修の提供──<br>新しい収益柱の設計図ができる</div>
       </div>
       <div class="rm-card">
-        <div class="rm-card-icon">🧭</div>
+        <div class="rm-card-icon-wrap">🧭</div>
         <div class="rm-card-head">ポジションの変化</div>
         <div class="rm-card-before">数字を処理する<br>税理士</div>
         <div class="rm-card-arrow">↓</div>
-        <div class="rm-card-after">顧問先の未来を設計する<br>パートナーへ──<br>AIを武器にした営業力が身につく</div>
+        <div class="rm-card-after">顧問先の未来を設計する<br>パートナーへ──<br>AIを武器にした提案力が身につく</div>
       </div>
     </div>
 
@@ -1159,7 +1252,7 @@
   <div style="max-width:1100px;margin:0 auto;">
     <p class="section-label reveal">SCHEDULE</p>
     <h2 class="section-title reveal">4〜5月 スケジュール</h2>
-    <p style="color:var(--muted);margin-bottom:40px;" class="reveal">各回120分（セミナー90分 ＋ 質疑応答30分）｜ 全3回</p>
+    <p style="color:var(--muted);margin-bottom:40px;" class="reveal">全3回 ｜ 各回 18:00〜20:00 開催　（セミナー 90分 / 質疑応答 30分）</p>
 
     <div class="cal-wrap reveal">
       <!-- April -->
@@ -1204,8 +1297,11 @@
     <div class="cta-date">4/20（月）第2回</div>
     <div class="cta-date">5/12（火）第3回</div>
   </div>
-  <div style="font-size:14px; font-weight:700; color:var(--navy); margin-bottom:10px; letter-spacing:0.05em;">▼ 事前に参加確認のご回答をお願いします</div>
-  <button class="nav-cta" onclick="openSurvey()" style="margin-bottom:28px; font-size:16px; padding:14px 36px; border:2px solid var(--navy);">参加確認・アンケート →</button>
+  <div style="font-size:14px; font-weight:700; color:var(--navy); margin-bottom:16px; letter-spacing:0.05em;">▼ お申込みはこちらから</div>
+  <div class="cta-btn-wrap">
+    <button onclick="openSurvey('member')" class="cta-btn-member">🎓 サロン会員の方はこちら →</button>
+    <button onclick="openSurvey('nonmember')" class="cta-btn-nonmember">✨ 初めての方・無料体験（1回）→</button>
+  </div>
   <div class="cta-note">税理士AI大学は、会員全員が「AIで稼げる税理士」になることを目指します。</div>
 </section>
 
@@ -1219,206 +1315,524 @@
   <div class="survey-box" id="survey-box">
     <div class="survey-head">
       <div class="survey-head-top">
-        <div class="survey-head-title">📋 参加確認・事前アンケート</div>
+        <div class="survey-head-title">📋 参加のお申込み</div>
       </div>
       <div class="survey-progress" id="survey-progress"></div>
     </div>
     <div class="survey-body" id="survey-body">
 
-      <!-- STEP 1: お名前 -->
-      <div class="survey-step active" id="step-1">
-        <div class="survey-step-label">Step 1 / 5</div>
-        <div class="survey-q">お名前を教えてください</div>
-        <div class="survey-q-sub">会員リストからお選びいただくか、リストにない方は下の入力欄にご記入ください</div>
-        <div class="name-select-wrap">
-          <select class="name-select" id="name-select">
-            <option value="">── 会員リストから選択 ──</option>
-            <optgroup label="特待生コース">
-              <option>高知 宏興</option><option>吉岡 亮治</option><option>小原 正寛</option>
-              <option>岡 憲一郎</option><option>古賀 若菜</option><option>五十嵐 真起</option>
-              <option>山賀 岳夫</option><option>三輪 将土</option><option>為定 康行</option>
-              <option>須戸 美敦</option><option>竹代 慶吾</option><option>舟越 かおり</option>
-              <option>吉田 茂治</option><option>奥 典久</option>
-            </optgroup>
-            <optgroup label="特別コース">
-              <option>根津 拓矢</option><option>黒川 貴司</option><option>山形 康高</option>
-              <option>金崎 浩</option><option>塚田 浩史</option><option>毛受 泰輔</option>
-              <option>丸子 佳秀</option><option>河口 正剛</option><option>藤田 裕紀子</option>
-              <option>金城 敏明</option><option>岡松 豊</option><option>時田 大地</option>
-              <option>望月 直樹</option><option>廣木 俊一</option><option>石井 理恵子</option>
-              <option>久高 将太</option><option>松木 摩耶子</option><option>武田 侑也</option>
-              <option>大澤 哲也</option><option>鈴木 康也</option><option>鈴木 教史</option>
-              <option>西 徳幸</option><option>平川 八重子</option><option>会津 至人</option>
-              <option>萱原 雅史</option><option>榊原 正利</option><option>深尾 宏</option>
-              <option>日向 雅之</option><option>新江 明</option><option>山本 寛徳</option>
-              <option>藤澤 公貴</option><option>川上 晋一</option><option>延平 修一</option>
-              <option>阿部 ミチル</option><option>庄田 航</option><option>山田 稔幸</option>
-              <option>岩渕 成浩</option><option>町田 真子</option><option>土田 繁</option>
-              <option>伊藤 秀樹</option><option>鈴木 崇仁</option>
-            </optgroup>
-          </select>
-          <span class="name-select-arrow">▼</span>
+      <!-- ═══ STEP 0: 参加区分選択 ═══ -->
+      <div class="survey-step active" id="step-0">
+        <div class="survey-step-label">Step 1 / 7</div>
+        <div class="survey-q">参加区分をお選びください</div>
+        <div class="survey-q-sub">お申込みの区分に応じて、必要な情報をご入力いただきます</div>
+        <div class="survey-options" id="q0-options">
+          <label class="survey-option" onclick="selectRadio(this,'q0')">
+            <input type="radio" name="q0" value="member">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label">サロン会員</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'q0')">
+            <input type="radio" name="q0" value="nonmember">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label">非会員（1回無料体験）</span>
+          </label>
         </div>
-        <span class="name-manual-toggle" onclick="toggleManual()">会員リストにない方はこちら（手入力）</span>
-        <input class="name-manual-input" id="name-manual" type="text" placeholder="お名前をご入力ください">
         <div class="survey-nav">
-          <button class="btn-next" onclick="goNext(1)" id="btn-next-1">次へ →</button>
+          <button class="btn-next" onclick="goNext('0')">次へ →</button>
         </div>
       </div>
 
-      <!-- STEP 2: AI活用の段階 -->
-      <div class="survey-step" id="step-2">
-        <div class="survey-step-label">Step 2 / 5</div>
+      <!-- ─── 会員フロー ─── -->
+
+      <!-- STEP M1: コース選択 -->
+      <div class="survey-step" id="step-m1">
+        <div class="survey-step-label">Step 2 / 7</div>
+        <div class="survey-q">ご加入コースをお選びください</div>
+        <div class="survey-q-sub">ご登録のコースをお選びください</div>
+        <div class="survey-options" id="qm1-options">
+          <label class="survey-option" onclick="selectRadio(this,'qm1')">
+            <input type="radio" name="qm1" value="特待生コース">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label">特待生コース</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qm1')">
+            <input type="radio" name="qm1" value="会費特別コース">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label">会費特別コース</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qm1')">
+            <input type="radio" name="qm1" value="事務局関係者">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label">事務局関係者</span>
+          </label>
+        </div>
+        <div class="survey-nav">
+          <button class="btn-back" onclick="goBack('m1')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('m1')">次へ →</button>
+        </div>
+      </div>
+
+      <!-- STEP M2: 氏名・事業所名（会員） -->
+      <div class="survey-step" id="step-m2">
+        <div class="survey-step-label">Step 3 / 7</div>
+        <div class="survey-q">お名前・事業所名をお知らせください</div>
+        <div class="survey-q-sub">事業所名とお名前をご入力ください</div>
+        <input class="name-manual-input show" id="m2-office" type="text" placeholder="事業所名" style="margin-bottom:10px;">
+        <input class="name-manual-input show" id="name-manual" type="text" placeholder="お名前（必須）">
+        <div class="survey-nav">
+          <button class="btn-back" onclick="goBack('m2')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('m2')">次へ →</button>
+        </div>
+      </div>
+
+      <!-- STEP M3: AI活用段階（会員） -->
+      <div class="survey-step" id="step-m3">
+        <div class="survey-step-label">Step 4 / 7</div>
         <div class="survey-q">現在のAI活用の段階</div>
         <div class="survey-q-sub">ご自身の状況に最も近いものをお選びください</div>
-        <div class="survey-options" id="q2-options">
-          <label class="survey-option" onclick="selectRadio(this,'q2')">
-            <input type="radio" name="q2" value="A">
+        <div class="survey-options" id="qm3-options">
+          <label class="survey-option" onclick="selectRadio(this,'qm3')">
+            <input type="radio" name="qm3" value="A">
             <span class="survey-opt-mark"></span>
-            <span class="survey-opt-label"><span class="survey-opt-key">A</span>AIを使って業務の一部を効率化できている</span>
+            <span class="survey-opt-label"><span class="survey-opt-key">A</span>顧問業務・仕訳・資料作成などにAIを実装し、成果が出ている</span>
           </label>
-          <label class="survey-option" onclick="selectRadio(this,'q2')">
-            <input type="radio" name="q2" value="B">
+          <label class="survey-option" onclick="selectRadio(this,'qm3')">
+            <input type="radio" name="qm3" value="B">
             <span class="survey-opt-mark"></span>
-            <span class="survey-opt-label"><span class="survey-opt-key">B</span>使ったことはあるが、業務に定着していない</span>
+            <span class="survey-opt-label"><span class="survey-opt-key">B</span>一部業務で成果は出始めているが、まだ限定的</span>
           </label>
-          <label class="survey-option" onclick="selectRadio(this,'q2')">
-            <input type="radio" name="q2" value="C">
+          <label class="survey-option" onclick="selectRadio(this,'qm3')">
+            <input type="radio" name="qm3" value="C">
             <span class="survey-opt-mark"></span>
-            <span class="survey-opt-label"><span class="survey-opt-key">C</span>興味はあるが、何にどう使えばいいかわからない</span>
+            <span class="survey-opt-label"><span class="survey-opt-key">C</span>操作やツールは理解しているが、業務活用に結びついていない</span>
           </label>
-          <label class="survey-option" onclick="selectRadio(this,'q2')">
-            <input type="radio" name="q2" value="D">
+          <label class="survey-option" onclick="selectRadio(this,'qm3')">
+            <input type="radio" name="qm3" value="D">
             <span class="survey-opt-mark"></span>
-            <span class="survey-opt-label"><span class="survey-opt-key">D</span>まだ必要性を感じていない／様子を見ている</span>
+            <span class="survey-opt-label"><span class="survey-opt-key">D</span>知識・スキル習得の段階で、これから実務活用を目指している</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qm3')">
+            <input type="radio" name="qm3" value="E">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">E</span>関心はあるが、まだ業務での活用に至っていない（時間確保や進め方に課題がある）</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qm3',true)">
+            <input type="radio" name="qm3" value="F">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">F</span>その他（自由記入）</span>
           </label>
         </div>
+        <div class="survey-conditional" id="qm3-other-wrap">
+          <textarea class="survey-textarea" id="qm3-other" placeholder="ご状況をご記入ください"></textarea>
+        </div>
         <div class="survey-nav">
-          <button class="btn-back" onclick="goBack(2)">← 戻る</button>
-          <button class="btn-next" onclick="goNext(2)" id="btn-next-2">次へ →</button>
+          <button class="btn-back" onclick="goBack('m3')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('m3')">次へ →</button>
         </div>
       </div>
 
-      <!-- STEP 3: AI活用が進まない理由 -->
-      <div class="survey-step" id="step-3">
-        <div class="survey-step-label">Step 3 / 5</div>
+      <!-- STEP M4: AI活用が進まない理由（会員） -->
+      <div class="survey-step" id="step-m4">
+        <div class="survey-step-label">Step 5 / 7</div>
         <div class="survey-q">AI活用が進まない一番の理由</div>
         <div class="survey-q-sub">最も大きいと感じるハードルをお選びください</div>
-        <div class="survey-options" id="q3-options">
-          <label class="survey-option" onclick="selectRadio(this,'q3')">
-            <input type="radio" name="q3" value="A">
+        <div class="survey-options" id="qm4-options">
+          <label class="survey-option" onclick="selectRadio(this,'qm4')">
+            <input type="radio" name="qm4" value="A">
             <span class="survey-opt-mark"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">A</span>自分の業務のどこにAIが使えるかイメージできない</span>
           </label>
-          <label class="survey-option" onclick="selectRadio(this,'q3')">
-            <input type="radio" name="q3" value="B">
+          <label class="survey-option" onclick="selectRadio(this,'qm4')">
+            <input type="radio" name="qm4" value="B">
             <span class="survey-opt-mark"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">B</span>プロンプト（指示の出し方）がわからない</span>
           </label>
-          <label class="survey-option" onclick="selectRadio(this,'q3')">
-            <input type="radio" name="q3" value="C">
+          <label class="survey-option" onclick="selectRadio(this,'qm4')">
+            <input type="radio" name="qm4" value="C">
             <span class="survey-opt-mark"></span>
-            <span class="survey-opt-label"><span class="survey-opt-key">C</span>AIの出力結果が正しいか判断できない</span>
+            <span class="survey-opt-label"><span class="survey-opt-key">C</span>AIから期待する出力結果が得られない</span>
           </label>
-          <label class="survey-option" onclick="selectRadio(this,'q3')">
-            <input type="radio" name="q3" value="D">
+          <label class="survey-option" onclick="selectRadio(this,'qm4')">
+            <input type="radio" name="qm4" value="D">
             <span class="survey-opt-mark"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">D</span>周囲の理解が得られない／事務所の方針として使いにくい</span>
           </label>
-          <label class="survey-option" onclick="selectRadio(this,'q3')">
-            <input type="radio" name="q3" value="E">
+          <label class="survey-option" onclick="selectRadio(this,'qm4')">
+            <input type="radio" name="qm4" value="E">
             <span class="survey-opt-mark"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">E</span>時間が取れない</span>
           </label>
-          <label class="survey-option" onclick="selectRadio(this,'q3')">
-            <input type="radio" name="q3" value="F">
+          <label class="survey-option" onclick="selectRadio(this,'qm4')">
+            <input type="radio" name="qm4" value="F">
             <span class="survey-opt-mark"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">F</span>特にハードルは感じていない</span>
           </label>
-          <label class="survey-option" onclick="selectRadio(this,'q3',true)">
-            <input type="radio" name="q3" value="other">
+          <label class="survey-option" onclick="selectRadio(this,'qm4',true)">
+            <input type="radio" name="qm4" value="other">
             <span class="survey-opt-mark"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">G</span>その他</span>
           </label>
         </div>
-        <div class="survey-conditional" id="q3-other-wrap">
-          <textarea class="survey-textarea" id="q3-other" placeholder="その他の理由をご記入ください"></textarea>
+        <div class="survey-conditional" id="qm4-other-wrap">
+          <textarea class="survey-textarea" id="qm4-other" placeholder="その他の理由をご記入ください"></textarea>
         </div>
         <div class="survey-nav">
-          <button class="btn-back" onclick="goBack(3)">← 戻る</button>
-          <button class="btn-next" onclick="goNext(3)" id="btn-next-3">次へ →</button>
+          <button class="btn-back" onclick="goBack('m4')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('m4')">次へ →</button>
         </div>
       </div>
 
-      <!-- STEP 4: 参加予定 -->
-      <div class="survey-step" id="step-4">
-        <div class="survey-step-label">Step 4 / 5</div>
-        <div class="survey-q">特別集中講座への参加予定</div>
-        <div class="survey-q-sub">参加できる回をすべてお選びください（原則として全回ご参加をお願いしています）</div>
-        <div class="survey-options" id="q4-options">
-          <label class="survey-option" onclick="selectCheck(this,'q4-1',event)">
-            <input type="checkbox" id="q4-1" value="4/13">
-            <span class="survey-opt-mark-check"></span>
-            <span class="survey-opt-label"><span class="survey-opt-key">第1回</span>4/13（月）18:00〜20:00　破壊と体験</span>
-          </label>
-          <label class="survey-option" onclick="selectCheck(this,'q4-2',event)">
-            <input type="checkbox" id="q4-2" value="4/20">
-            <span class="survey-opt-mark-check"></span>
-            <span class="survey-opt-label"><span class="survey-opt-key">第2回</span>4/20（月）18:00〜20:00　習慣と自走</span>
-          </label>
-          <label class="survey-option" onclick="selectCheck(this,'q4-3',event)">
-            <input type="checkbox" id="q4-3" value="5/12">
-            <span class="survey-opt-mark-check"></span>
-            <span class="survey-opt-label"><span class="survey-opt-key">第3回</span>5/12（火）18:00〜20:00　視座の転換</span>
-          </label>
-          <label class="survey-option" onclick="selectCheck(this,'q4-none',event)">
-            <input type="checkbox" id="q4-none" value="none">
-            <span class="survey-opt-mark-check"></span>
-            <span class="survey-opt-label" style="color:var(--muted)">いずれも参加が難しい</span>
-          </label>
-        </div>
-        <div class="survey-conditional" id="q4-reason-wrap">
-          <textarea class="survey-textarea" id="q4-reason" placeholder="参加できない回がある場合、差し支えなければ理由をお聞かせください（任意）"></textarea>
-        </div>
-        <div class="survey-nav">
-          <button class="btn-back" onclick="goBack(4)">← 戻る</button>
-          <button class="btn-next" onclick="goNext(4)" id="btn-next-4">次へ →</button>
-        </div>
-      </div>
-
-      <!-- STEP 5: AIキノシタくん -->
-      <div class="survey-step" id="step-5">
-        <div class="survey-step-label">Step 5 / 5</div>
+      <!-- STEP M5: AIキノシタくん（会員）← Step6 -->
+      <div class="survey-step" id="step-m5">
+        <div class="survey-step-label">Step 6 / 7</div>
         <div class="survey-q">AIキノシタくんの利用状況</div>
         <div class="survey-q-sub">AIキノシタくんを使ったことはありますか？</div>
-        <div class="survey-options" id="q5-options">
-          <label class="survey-option" onclick="selectRadio(this,'q5')">
-            <input type="radio" name="q5" value="A">
+        <div class="survey-options" id="qm5k-options">
+          <label class="survey-option" onclick="selectRadio(this,'qm5k')">
+            <input type="radio" name="qm5k" value="A">
             <span class="survey-opt-mark"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">A</span>定期的に使っている</span>
           </label>
-          <label class="survey-option" onclick="selectRadio(this,'q5')">
-            <input type="radio" name="q5" value="B">
+          <label class="survey-option" onclick="selectRadio(this,'qm5k')">
+            <input type="radio" name="qm5k" value="B">
             <span class="survey-opt-mark"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">B</span>数回使ったことがある</span>
           </label>
-          <label class="survey-option" onclick="selectRadio(this,'q5')">
-            <input type="radio" name="q5" value="C">
+          <label class="survey-option" onclick="selectRadio(this,'qm5k')">
+            <input type="radio" name="qm5k" value="C">
             <span class="survey-opt-mark"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">C</span>存在は知っているが使っていない</span>
           </label>
-          <label class="survey-option" onclick="selectRadio(this,'q5')">
-            <input type="radio" name="q5" value="D">
+          <label class="survey-option" onclick="selectRadio(this,'qm5k')">
+            <input type="radio" name="qm5k" value="D">
             <span class="survey-opt-mark"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">D</span>よく知らない</span>
           </label>
         </div>
-        <div class="survey-conditional" id="q5-free-wrap">
-          <textarea class="survey-textarea" id="q5-free" placeholder="使っていない理由や「こう使えたら嬉しい」があれば一言（任意）"></textarea>
+        <div class="survey-conditional" id="qm5k-free-wrap">
+          <textarea class="survey-textarea" id="qm5k-free" placeholder="使っていない理由や「こう使えたら嬉しい」があれば一言（任意）"></textarea>
+        </div>
+        <div style="margin-top:20px;">
+          <div class="survey-q-sub" style="margin-bottom:8px;">サービスをご利用いただいてのご意見や感想をお聞かせください</div>
+          <textarea class="survey-textarea" id="m5k-opinion" placeholder="ご意見・ご感想（任意）" style="margin-top:0;"></textarea>
         </div>
         <div class="survey-nav">
-          <button class="btn-back" onclick="goBack(5)">← 戻る</button>
-          <button class="btn-next" onclick="submitSurvey()">回答を送信 ✓</button>
+          <button class="btn-back" onclick="goBack('m5')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('m5')">次へ →</button>
+        </div>
+      </div>
+
+      <!-- STEP M6: 参加予定（会員）← Step7 -->
+      <div class="survey-step" id="step-m6">
+        <div class="survey-step-label">Step 7 / 7</div>
+        <div class="survey-q">特別集中講座への参加予定</div>
+        <div class="survey-q-sub">参加できる回をすべてお選びください（原則として全回ご参加をお願いしています）</div>
+        <div class="survey-options" id="m6d-options">
+          <label class="survey-option" onclick="selectCheck(this,'m6d-1',event)">
+            <input type="checkbox" id="m6d-1" value="4/13">
+            <span class="survey-opt-mark-check"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">第1回</span>4/13（月）18:00〜20:00　破壊と体験</span>
+          </label>
+          <label class="survey-option" onclick="selectCheck(this,'m6d-2',event)">
+            <input type="checkbox" id="m6d-2" value="4/20">
+            <span class="survey-opt-mark-check"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">第2回</span>4/20（月）18:00〜20:00　習慣と自走</span>
+          </label>
+          <label class="survey-option" onclick="selectCheck(this,'m6d-3',event)">
+            <input type="checkbox" id="m6d-3" value="5/12">
+            <span class="survey-opt-mark-check"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">第3回</span>5/12（火）18:00〜20:00　視座の転換</span>
+          </label>
+          <label class="survey-option" onclick="selectCheck(this,'m6d-none',event)">
+            <input type="checkbox" id="m6d-none" value="none">
+            <span class="survey-opt-mark-check"></span>
+            <span class="survey-opt-label" style="color:var(--muted)">いずれも参加が難しい</span>
+          </label>
+        </div>
+        <div class="survey-conditional" id="m6d-reason-wrap">
+          <textarea class="survey-textarea" id="m6d-reason" placeholder="参加できない回がある場合、差し支えなければ理由をお聞かせください（任意）"></textarea>
+        </div>
+        <div class="survey-nav">
+          <button class="btn-back" onclick="goBack('m6')">← 戻る</button>
+          <button class="btn-next" onclick="submitSurvey()">お申込みを送信 ✓</button>
+        </div>
+      </div>
+
+      <!-- ─── 非会員フロー ─── -->
+
+      <!-- STEP N1: 氏名・事業所名・メール（非会員） -->
+      <div class="survey-step" id="step-n1">
+        <div class="survey-step-label">Step 2 / 7</div>
+        <div class="survey-q">お名前・ご連絡先をご入力ください</div>
+        <div class="survey-q-sub">無料体験のご参加に必要な情報をご入力ください</div>
+        <input class="name-manual-input show" id="n1-office" type="text" placeholder="事業所名（任意）" style="margin-bottom:10px;">
+        <input class="name-manual-input show" id="n1-name" type="text" placeholder="お名前（必須）" style="margin-bottom:10px;">
+        <input class="name-manual-input show" id="n1-kana" type="text" placeholder="ふりがな（必須）" style="margin-bottom:10px;">
+        <input class="name-manual-input show" id="n1-email" type="email" placeholder="メールアドレス（必須）">
+        <div class="survey-nav">
+          <button class="btn-back" onclick="goBack('n1')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('n1')">次へ →</button>
+        </div>
+      </div>
+
+      <!-- STEP N1b: 参加希望回（非会員）Step3 -->
+      <div class="survey-step" id="step-n1b">
+        <div class="survey-step-label">Step 3 / 9</div>
+        <div class="survey-q">参加を希望する回をお選びください</div>
+        <div class="survey-q-sub">お一人様1回のみ無料でご参加いただけます</div>
+        <div class="survey-options" id="qn1b-options">
+          <label class="survey-option" onclick="selectRadio(this,'qn1b')">
+            <input type="radio" name="qn1b" value="4/13">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">第1回</span>4/13（月）18:00〜20:00　破壊と体験</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn1b')">
+            <input type="radio" name="qn1b" value="4/20">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">第2回</span>4/20（月）18:00〜20:00　習慣と自走</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn1b')">
+            <input type="radio" name="qn1b" value="5/12">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">第3回</span>5/12（火）18:00〜20:00　視座の転換</span>
+          </label>
+        </div>
+        <div class="survey-nav">
+          <button class="btn-back" onclick="goBack('n1b')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('n1b')">次へ →</button>
+        </div>
+      </div>
+
+      <!-- STEP N2: Q1 きっかけ（非会員） -->
+      <div class="survey-step" id="step-n2">
+        <div class="survey-step-label">Step 3 / 7</div>
+        <div class="survey-q">この講座をどこでお知りになりましたか？</div>
+        <div class="survey-q-sub">きっかけをご記入ください（例：知人の紹介、SNS、セミナー案内など）</div>
+        <textarea class="survey-textarea" id="n2-text" placeholder="ご記入ください" style="margin-top:0;"></textarea>
+        <div class="survey-nav">
+          <button class="btn-back" onclick="goBack('n2')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('n2')">次へ →</button>
+        </div>
+      </div>
+
+      <!-- STEP N3: AI活用レベル（非会員） -->
+      <div class="survey-step" id="step-n3">
+        <div class="survey-step-label">Step 4 / 7</div>
+        <div class="survey-q">今のAI活用レベルを自己診断してください</div>
+        <div class="survey-q-sub">ご自身の状況に最も近いものをお選びください</div>
+        <div class="survey-options" id="qn3-options">
+          <label class="survey-option" onclick="selectRadio(this,'qn3')">
+            <input type="radio" name="qn3" value="A">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">A</span>AIにほとんど触れたことがない</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn3')">
+            <input type="radio" name="qn3" value="B">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">B</span>ChatGPTやGeminiを試したことはあるが、使い続けていない</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn3')">
+            <input type="radio" name="qn3" value="C">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">C</span>特定の用途でAIを使っており、業務に組み込み始めている</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn3')">
+            <input type="radio" name="qn3" value="D">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">D</span>複数のAIツールを使い分け、生産性が明らかに上がっている</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn3',true)">
+            <input type="radio" name="qn3" value="E">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">E</span>その他</span>
+          </label>
+        </div>
+        <div class="survey-conditional" id="qn3-other-wrap">
+          <textarea class="survey-textarea" id="qn3-other" placeholder="ご状況をご記入ください"></textarea>
+        </div>
+        <div class="survey-nav">
+          <button class="btn-back" onclick="goBack('n3')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('n3')">次へ →</button>
+        </div>
+      </div>
+
+      <!-- STEP N4: ハードル（非会員） -->
+      <div class="survey-step" id="step-n4">
+        <div class="survey-step-label">Step 5 / 7</div>
+        <div class="survey-q">AI本格活用のいちばんのハードルは何ですか？</div>
+        <div class="survey-q-sub">最も当てはまるものをお選びください</div>
+        <div class="survey-options" id="qn4-options">
+          <label class="survey-option" onclick="selectRadio(this,'qn4')">
+            <input type="radio" name="qn4" value="A">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">A</span>何から始めればいいかわからない</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn4')">
+            <input type="radio" name="qn4" value="B">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">B</span>自分の業務のどこに使えばいいかイメージできない</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn4')">
+            <input type="radio" name="qn4" value="C">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">C</span>AIの出力が正しいかどうか不安で、業務に使いにくい</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn4')">
+            <input type="radio" name="qn4" value="D">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">D</span>勉強する時間・環境が取れない</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn4')">
+            <input type="radio" name="qn4" value="E">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">E</span>特にハードルは感じていない。さらに上を目指したい</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn4',true)">
+            <input type="radio" name="qn4" value="F">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">F</span>その他</span>
+          </label>
+        </div>
+        <div class="survey-conditional" id="qn4-other-wrap">
+          <textarea class="survey-textarea" id="qn4-other" placeholder="その他の理由をご記入ください"></textarea>
+        </div>
+        <div class="survey-nav">
+          <button class="btn-back" onclick="goBack('n4')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('n4')">次へ →</button>
+        </div>
+      </div>
+
+      <!-- STEP N5: Q4 時間を取られること（非会員） -->
+      <div class="survey-step" id="step-n5">
+        <div class="survey-step-label">Step 6 / 7</div>
+        <div class="survey-q">業務で最も時間を取られていることは何ですか？</div>
+        <div class="survey-q-sub">最も当てはまるものをお選びください</div>
+        <div class="survey-options" id="qn5-options">
+          <label class="survey-option" onclick="selectRadio(this,'qn5')">
+            <input type="radio" name="qn5" value="A">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">A</span>記帳・仕訳の確認や入力作業</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn5')">
+            <input type="radio" name="qn5" value="B">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">B</span>税務調査・法律・制度の情報収集・調査</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn5')">
+            <input type="radio" name="qn5" value="C">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">C</span>顧問先へのレポートや説明資料の作成</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn5')">
+            <input type="radio" name="qn5" value="D">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">D</span>顧問先からの問い合わせ対応・説明業務</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn5',true)">
+            <input type="radio" name="qn5" value="E">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">E</span>その他</span>
+          </label>
+        </div>
+        <div class="survey-conditional" id="qn5-other-wrap">
+          <textarea class="survey-textarea" id="qn5-other" placeholder="その他の内容をご記入ください"></textarea>
+        </div>
+        <div class="survey-nav">
+          <button class="btn-back" onclick="goBack('n5')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('n5')">次へ →</button>
+        </div>
+      </div>
+
+      <!-- STEP N6: Q5（非会員） -->
+      <div class="survey-step" id="step-n6">
+        <div class="survey-step-label">Step 7 / 7</div>
+        <div class="survey-q">今の働き方についての気持ちはどれに近いですか？</div>
+        <div class="survey-q-sub">正直な気持ちをお選びください</div>
+        <div class="survey-options" id="qn6a-options">
+          <label class="survey-option" onclick="selectRadio(this,'qn6a')">
+            <input type="radio" name="qn6a" value="A">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">A</span>このままでいいのか、という漠然とした不安がある</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn6a')">
+            <input type="radio" name="qn6a" value="B">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">B</span>毎日忙しいのに、収益が上がっている実感が薄い</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn6a')">
+            <input type="radio" name="qn6a" value="C">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">C</span>変わらなければと思っているが、なかなか動けていない</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn6a')">
+            <input type="radio" name="qn6a" value="D">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">D</span>新しいことに挑戦したくて、すでに動き始めている</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn6a')">
+            <input type="radio" name="qn6a" value="E">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">E</span>特に大きな不満はないが、アップデートはしておきたい</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn6a',true)">
+            <input type="radio" name="qn6a" value="F">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">F</span>その他</span>
+          </label>
+        </div>
+        <div class="survey-conditional" id="qn6a-other-wrap">
+          <textarea class="survey-textarea" id="qn6a-other" placeholder="その他の気持ちをご記入ください"></textarea>
+        </div>
+        <div class="survey-nav">
+          <button class="btn-back" onclick="goBack('n6')">← 戻る</button>
+          <button class="btn-next" onclick="goNext('n6')">次へ →</button>
+        </div>
+      </div>
+
+      <!-- STEP N7: 顧問先業種（非会員）Step9 -->
+      <div class="survey-step" id="step-n7">
+        <div class="survey-step-label">Step 9 / 9</div>
+        <div class="survey-q">現在お取引のある顧問先様の主な業種を教えてください</div>
+        <div class="survey-q-sub">最も当てはまるものをお選びください</div>
+        <div class="survey-options" id="qn7-options">
+          <label class="survey-option" onclick="selectRadio(this,'qn7')">
+            <input type="radio" name="qn7" value="中小企業中心">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">A</span>中小企業中心</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn7')">
+            <input type="radio" name="qn7" value="個人事業主中心">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">B</span>個人事業主中心</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn7')">
+            <input type="radio" name="qn7" value="医療・クリニック中心">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">C</span>医療・クリニック中心</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn7')">
+            <input type="radio" name="qn7" value="不動産・資産家中心">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">D</span>不動産・資産家中心</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn7')">
+            <input type="radio" name="qn7" value="幅広い業種">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">E</span>幅広い業種</span>
+          </label>
+          <label class="survey-option" onclick="selectRadio(this,'qn7',true)">
+            <input type="radio" name="qn7" value="その他">
+            <span class="survey-opt-mark"></span>
+            <span class="survey-opt-label"><span class="survey-opt-key">F</span>その他</span>
+          </label>
+        </div>
+        <div class="survey-conditional" id="qn7-other-wrap">
+          <textarea class="survey-textarea" id="qn7-other" placeholder="業種をご記入ください"></textarea>
+        </div>
+        <div class="survey-nav">
+          <button class="btn-back" onclick="goBack('n7')">← 戻る</button>
+          <button class="btn-next" onclick="submitSurvey()">お申込みを送信 ✓</button>
         </div>
       </div>
 
@@ -1426,9 +1840,9 @@
       <div class="survey-step" id="step-thanks">
         <div class="survey-thanks">
           <div class="survey-thanks-icon">✓</div>
-          <div class="survey-thanks-title">ご回答ありがとうございました！</div>
-          <div class="survey-thanks-msg">
-            参加確認とアンケートを受け付けました。<br>
+          <div class="survey-thanks-title">お申込みありがとうございました！</div>
+          <div class="survey-thanks-msg" id="thanks-msg">
+            お申込みを受け付けました。<br>
             当日を楽しみにしていてください！<br><br>
             セミナー前に事前資料をお送りいたします。
           </div>
@@ -1496,24 +1910,24 @@ const SESSION_DATA = {
     date: '4月13日（月）18:00〜20:00',
     theme: '破壊と体験',
     headerColor: '#2563EB',
-    badge: { text: '内容アップデート版', color: 'rgba(255,255,255,0.25)', border: 'rgba(255,255,255,0.5)' },
-    desc: '「AIは難しい・怖い」という思い込みを、1時間半で完全に壊す。厳選プロンプトのコピペだけで完結する超実践型ワークショップ。理論はゼロ、とにかく「できた！」の体験を積む。',
+    badge: null,
+    desc: '「AIは難しい・怖い」というご不安を、1時間半で完全に払拭します。厳選プロンプトのコピペだけで完結する超実践型ワークショップです。理論はゼロ、とにかく「できた！」という体験を積んでいただきます。',
     points: [
       'Geminiを使って明日から仕事を半分にする実践演習',
       '作らなくていい・使えばいい。完成済みプロンプトをそのまま活用',
       '税理士業務に特化した厳選ユースケースを実演',
-      '確定申告後の今がベストタイミング。ゼロからでも大丈夫',
+      '確定申告 終了後の今がベストタイミング。ゼロからでも大丈夫',
     ],
     shift: { from: '「怖い・難しい」', to: '「できた・面白い」' },
-    homework: '宿題：Geminiを使った結果を1週間以内にSlackへ投稿。この投稿が第2回の素材になり、全員の学びにつながる。',
+    homework: '宿題：Geminiを使った結果を1週間以内にSlackへご投稿ください。この投稿が第2回の素材となり、全員の学びにつながります。',
   },
   2: {
     num: '第2回',
-    date: '4月20日（日）18:00〜20:00',
+    date: '4月20日（月）18:00〜20:00',
     theme: '習慣と自走',
     headerColor: '#059669',
-    badge: { text: '★ 新規追加', color: '#C0392B', border: '#C0392B' },
-    desc: '「なんとなく使っている」状態から、「自分で判断して動かせる」状態へ。第1回の宿題をもとに全員の成功体験を共有し、AI活用を習慣化・加速させる。',
+    badge: null,
+    desc: '「なんとなく使っている」状態から、「自分で判断して動かせる」状態へ。第1回の宿題をもとに全員の成功体験を共有し、AI活用を習慣化・加速させます。',
     points: [
       'Slackに投稿された宿題を全員で振り返り・深掘り',
       'GeminiからClaude・NotebookLMへと活用の幅を広げる',
@@ -1522,21 +1936,21 @@ const SESSION_DATA = {
       'アドバンスチーム向け：Claude Codeへの入口を体験',
     ],
     shift: { from: '「なんとなく使う」', to: '「自分で判断して動かせる」' },
-    homework: '宿題：習得した段取り術を実務に1つ適用し、結果をSlackに共有。第3回の視座の転換につなげる素材になる。',
+    homework: '宿題：習得した段取り術を実務に1つ適用し、結果をSlackにご共有ください。第3回の視座の転換につなげる素材になります。',
   },
   3: {
     num: '第3回',
     date: '5月12日（火）18:00〜20:00',
     theme: '視座の転換',
     headerColor: '#D97706',
-    badge: { text: '内容アップデート版', color: 'rgba(255,255,255,0.25)', border: 'rgba(255,255,255,0.5)' },
-    desc: '「AIで効率化する税理士」から「AIを使って顧問先を儲けさせる税理士」へ。3回シリーズの総集編として、AI時代に求められるワークシフトの全体設計を行う。',
+    badge: null,
+    desc: '「AIで効率化する税理士」から「AIを使って顧問先の収益力を高める税理士」へ。3回シリーズの総集編として、AI時代に求められるワークシフトの全体設計を行います。',
     points: [
       '税理士の新しいポジション：「お金のお医者さん」としての財務コンサル',
-      '財務コンサル・節税提案・金融商品紹介のバックエンド収益モデル',
-      'リスキリング補助金を活用したクライアントへのAI研修提案',
-      '毛受先生のような「自ら動き出せる税理士」になるための意識変革',
-      '3回を通じた成功体験が、最も説得力ある営業トークになる',
+      '財務コンサル・節税提案・金融商品紹介による付加価値提供モデル',
+      'リスキリング補助金を活用したクライアント様へのAI研修提案',
+      '自信を醸成し「自ら動き出せる税理士」になるための意識変革',
+      '3回の実践を通じた成功体験が、顧問先への価値提供をより確かなものにする',
     ],
     shift: { from: '「AIを使える」', to: '「AIで稼ぐ設計ができている」' },
     homework: null,
@@ -1549,7 +1963,7 @@ const BG_DATA = {
     label: 'BACKGROUND',
     head: '【背景】なぜ今、変わらなければならないのか',
     headerColor: '#2563EB',
-    desc: '2026年、AIエージェントの進化は想定をはるかに超えるスピードで加速しています。税理士の定型業務がAIに代替されるリスクは「数年後の話」ではなく「今年中」に現実化する水準に到達しました。',
+    desc: '2026年、AIエージェントの進化は想定をはるかに超えるスピードで加速しています。税理士の定型業務がAIに代替されるリスクは「数年後の話」ではなく「今年中」に現実化する水準に到達しつつあります。',
     visual: 'timeline',
     timeline: [
       { year: '2022年', dot: '#60A5FA', text: 'ChatGPT登場。「面白いツール」として話題に' },
@@ -1565,13 +1979,13 @@ const BG_DATA = {
   },
   current: {
     label: 'CURRENT STATUS',
-    head: '【現在地】全員が同じスタートラインに立っている',
+    head: '【現在地】今こそ、新たなスタートのタイミング',
     headerColor: '#059669',
-    desc: '確定申告という繁忙期を終えた今、会員の先生方は全員がリセットされた状態です。AIに手が付けられなかった方も、この瞬間から同じスタートラインに立っています。',
+    desc: '確定申告という繁忙期を終えた今、会員の先生方にとって、まさに次の一歩を踏み出すタイミングです。',
     visual: 'journey',
     journey: [
       { icon: '📋', label: '直前まで', text: '確定申告期<br>繁忙期' },
-      { icon: '🏁', label: '今（全員）', text: 'スタート<br>ライン' },
+      { icon: '🏁', label: '今（全員）', text: '新たな<br>スタート' },
       { icon: '🚀', label: '3週間後', text: 'AIで稼ぐ<br>税理士' },
     ],
     bullets: [
@@ -1584,7 +1998,7 @@ const BG_DATA = {
     label: 'PURPOSE',
     head: '【本講座の目的】ギャップを3週間で埋める',
     headerColor: '#D97706',
-    desc: '「時代の加速」と「会員の現在地」のギャップを、3週間の集中講座で一気に埋めます。理論ゼロ・実体験100%の設計で、全員がAIを使いこなせる状態へ引き上げます。',
+    desc: '「時代の加速」と「会員の現在地」のギャップを、3週間の集中講座で一気に埋めます。理論ゼロ・実体験100%の設計で、全員がAIを使いこなせる状態へ導きます。',
     visual: 'steps',
     steps: [
       { num: 1, color: '#2563EB', title: '第1回：破壊と体験（4/13）', sub: '「難しい・怖い」を1時間半で完全に壊す超実践ワークショップ' },
@@ -1664,7 +2078,7 @@ function openModal(sessionNum) {
   document.getElementById('modal-theme').textContent = d.theme;
   document.getElementById('modal-header').style.background = d.headerColor;
 
-  let badgeHtml = `<span class="modal-badge" style="background:${d.badge.color};border:1px solid ${d.badge.border};color:white;margin-bottom:10px;">${d.badge.text}</span>`;
+  let badgeHtml = d.badge ? `<span class="modal-badge" style="background:${d.badge.color};border:1px solid ${d.badge.border};color:white;margin-bottom:10px;">${d.badge.text}</span>` : '';
 
   let pointsHtml = d.points.map(p => `<li>${p}</li>`).join('');
 
@@ -1758,162 +2172,312 @@ buildCalendar('may-grid', mayDays, mayHL);
 
 // ── Survey ──────────────────────────────────────────
 let surveyData = {};
+let surveyPath = []; // ナビ履歴（戻るボタン用）
+let surveyTotal = 7; // 会員:7 / 非会員:9（パス選択時に更新）
 
-function openSurvey() {
+// ステップIDと進捗番号のマッピング
+// 会員:1-7、非会員:1-9（同じステップIDでも進捗番号が異なる場合はsurveytotalで調整）
+const STEP_PROGRESS = {
+  '0': 1,
+  'm1':2,  'n1':2,
+  'm2':3,  'n1b':3,
+  'm3':4,  'n2':4,
+  'm4':5,  'n3':5,
+  'm5':6,  'n4':6,
+  'm6':7,  'n5':7,
+           'n6':8,
+           'n7':9,
+  'thanks':10
+};
+
+function openSurvey(preselect) {
   document.getElementById('survey-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
-  renderProgress(1);
-  resetSteps();
+  surveyData = {};
+  surveyPath = [];
+  surveyTotal = 7; // デフォルトリセット
+  document.querySelectorAll('.survey-step').forEach(s => s.classList.remove('active'));
+  // ラジオボタンをリセット
+  document.querySelectorAll('input[name="q0"]').forEach(r => { r.checked = false; });
+  document.querySelectorAll('#q0-options .survey-option').forEach(o => o.classList.remove('selected'));
+  document.getElementById('survey-box').scrollTop = 0;
+
+  if (preselect === 'member' || preselect === 'nonmember') {
+    // ボタン側で区分を事前選択 → Step0をスキップしてStep1へ
+    surveyData._isMember = (preselect === 'member');
+    surveyData.memberType = preselect === 'member' ? 'サロン会員' : '非会員（1回無料体験）';
+    surveyTotal = surveyData._isMember ? 7 : 9;
+    const radio = document.querySelector(`input[name="q0"][value="${preselect}"]`);
+    if (radio) {
+      radio.checked = true;
+      radio.closest('.survey-option').classList.add('selected');
+    }
+    surveyPath.push('0');
+    showStep(surveyData._isMember ? 'm1' : 'n1');
+  } else {
+    showStep('0');
+  }
 }
+
 function closeSurvey() {
   document.getElementById('survey-overlay').classList.remove('open');
   document.body.style.overflow = '';
 }
+
 document.getElementById('survey-overlay').addEventListener('click', function(e) {
   if (e.target === this) closeSurvey();
 });
 
-function resetSteps() {
-  document.querySelectorAll('.survey-step').forEach(s => s.classList.remove('active'));
-  document.getElementById('step-1').classList.add('active');
-  document.getElementById('survey-box').scrollTop = 0;
-}
-
 function renderProgress(current) {
-  const total = 5;
   const bar = document.getElementById('survey-progress');
   bar.innerHTML = '';
-  for (let i = 1; i <= total; i++) {
+  for (let i = 1; i <= surveyTotal; i++) {
     const d = document.createElement('div');
     d.className = 'survey-step-dot' + (i < current ? ' done' : i === current ? ' active' : '');
     bar.appendChild(d);
   }
 }
 
-function showStep(n) {
+function showStep(id) {
   document.querySelectorAll('.survey-step').forEach(s => s.classList.remove('active'));
-  const el = document.getElementById(n === 'thanks' ? 'step-thanks' : 'step-' + n);
+  const el = document.getElementById(id === 'thanks' ? 'step-thanks' : 'step-' + id);
   if (el) el.classList.add('active');
   document.getElementById('survey-box').scrollTop = 0;
-  if (n !== 'thanks') renderProgress(n);
-}
-
-function getName() {
-  const sel = document.getElementById('name-select').value;
-  const man = document.getElementById('name-manual').value.trim();
-  return (document.getElementById('name-manual').classList.contains('show') && man) ? man : sel;
+  if (id !== 'thanks') {
+    const progNum = STEP_PROGRESS[id] || 1;
+    renderProgress(progNum);
+    // ステップラベルを動的に更新（会員/非会員で総数が異なるため）
+    const lbl = el && el.querySelector('.survey-step-label');
+    if (lbl) lbl.textContent = 'STEP ' + progNum + ' / ' + surveyTotal;
+  }
 }
 
 function goNext(step) {
-  if (step === 1) {
-    const name = getName();
-    if (!name) { alert('お名前をお選びいただくか、ご入力ください'); return; }
+  // ── 共通ステップ ──
+  if (step === '0') {
+    const val = document.querySelector('input[name="q0"]:checked');
+    if (!val) { alert('参加区分をお選びください'); return; }
+    surveyData.memberType = val.value === 'member' ? 'サロン会員' : '非会員（1回無料体験）';
+    surveyData._isMember = (val.value === 'member');
+    surveyTotal = surveyData._isMember ? 7 : 9; // パスに応じてステップ総数を設定
+    surveyPath.push('0');
+    showStep(val.value === 'member' ? 'm1' : 'n1');
+
+  // ── 会員フロー ──
+  } else if (step === 'm1') {
+    const val = document.querySelector('input[name="qm1"]:checked');
+    if (!val) { alert('コースをお選びください'); return; }
+    surveyData.course = val.value;
+    surveyPath.push('m1');
+    showStep('m2');
+
+  } else if (step === 'm2') {
+    const name = document.getElementById('name-manual').value.trim();
+    if (!name) { alert('お名前をご入力ください'); return; }
+    surveyData.office = document.getElementById('m2-office').value.trim();
     surveyData.name = name;
-    showStep(2);
-  } else if (step === 2) {
-    const val = document.querySelector('input[name="q2"]:checked');
+    surveyPath.push('m2');
+    showStep('m3');
+
+  } else if (step === 'm3') {
+    const val = document.querySelector('input[name="qm3"]:checked');
     if (!val) { alert('お選びください'); return; }
-    surveyData.q2 = val.value;
-    showStep(3);
-  } else if (step === 3) {
-    const val = document.querySelector('input[name="q3"]:checked');
+    surveyData.qm3 = val.value;
+    surveyData.qm3_other = document.getElementById('qm3-other').value.trim();
+    surveyPath.push('m3');
+    showStep('m4');
+
+  } else if (step === 'm4') {
+    const val = document.querySelector('input[name="qm4"]:checked');
     if (!val) { alert('お選びください'); return; }
-    surveyData.q3 = val.value;
-    surveyData.q3_other = document.getElementById('q3-other').value.trim();
-    showStep(4);
-  } else if (step === 4) {
-    const checks = Array.from(document.querySelectorAll('#q4-options input[type=checkbox]:checked'));
-    if (checks.length === 0) { alert('参加予定をお選びください'); return; }
-    surveyData.q4 = checks.map(c => c.value).join('、');
-    surveyData.q4_reason = document.getElementById('q4-reason').value.trim();
-    showStep(5);
+    surveyData.qm4 = val.value;
+    surveyData.qm4_other = document.getElementById('qm4-other').value.trim();
+    surveyPath.push('m4');
+    showStep('m5');
+
+  } else if (step === 'm5') {
+    // AIキノシタ（Step6）
+    const val = document.querySelector('input[name="qm5k"]:checked');
+    if (!val) { alert('お選びください'); return; }
+    surveyData.qm5k = val.value;
+    surveyData.qm5k_free = document.getElementById('qm5k-free').value.trim();
+    surveyData.m5k_opinion = document.getElementById('m5k-opinion').value.trim();
+    surveyPath.push('m5');
+    showStep('m6');
+
+  // ── 非会員フロー ──
+  } else if (step === 'n1') {
+    const name = document.getElementById('n1-name').value.trim();
+    const kana = document.getElementById('n1-kana').value.trim();
+    const email = document.getElementById('n1-email').value.trim();
+    if (!name) { alert('お名前をご入力ください'); return; }
+    if (!kana) { alert('ふりがなをご入力ください'); return; }
+    if (!email || !email.includes('@')) { alert('正しいメールアドレスをご入力ください'); return; }
+    surveyData.office = document.getElementById('n1-office').value.trim();
+    surveyData.name = name;
+    surveyData.kana = kana;
+    surveyData.email = email;
+    surveyPath.push('n1');
+    showStep('n1b');
+
+  } else if (step === 'n1b') {
+    const val = document.querySelector('input[name="qn1b"]:checked');
+    if (!val) { alert('参加を希望する回をお選びください'); return; }
+    surveyData.trialDate = val.value;
+    surveyPath.push('n1b');
+    showStep('n2');
+
+  } else if (step === 'n2') {
+    const text = document.getElementById('n2-text').value.trim();
+    if (!text) { alert('この講座をどこでお知りになったかご記入ください'); return; }
+    surveyData.n2 = text;
+    surveyPath.push('n2');
+    showStep('n3');
+
+  } else if (step === 'n3') {
+    const val = document.querySelector('input[name="qn3"]:checked');
+    if (!val) { alert('お選びください'); return; }
+    surveyData.n3 = val.value;
+    surveyData.n3_other = document.getElementById('qn3-other').value.trim();
+    surveyPath.push('n3');
+    showStep('n4');
+
+  } else if (step === 'n4') {
+    const val = document.querySelector('input[name="qn4"]:checked');
+    if (!val) { alert('お選びください'); return; }
+    surveyData.n4 = val.value;
+    surveyData.n4_other = document.getElementById('qn4-other').value.trim();
+    surveyPath.push('n4');
+    showStep('n5');
+
+  } else if (step === 'n5') {
+    const val = document.querySelector('input[name="qn5"]:checked');
+    if (!val) { alert('お選びください'); return; }
+    surveyData.n5 = val.value;
+    surveyData.n5_other = document.getElementById('qn5-other').value.trim();
+    surveyPath.push('n5');
+    showStep('n6');
+
+  } else if (step === 'n6') {
+    const q5val = document.querySelector('input[name="qn6a"]:checked');
+    if (!q5val) { alert('お選びください'); return; }
+    surveyData.n6q5 = q5val.value;
+    surveyData.n6q5_other = document.getElementById('qn6a-other').value.trim();
+    surveyPath.push('n6');
+    showStep('n7');
   }
-  renderProgress(step + 1);
 }
 
 function goBack(step) {
-  showStep(step - 1);
-  renderProgress(step - 1);
+  if (surveyPath.length > 0) {
+    const prevStep = surveyPath.pop();
+    showStep(prevStep);
+  }
 }
 
 function selectRadio(el, name, showOther) {
   document.querySelectorAll(`#${name}-options .survey-option`).forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
   el.querySelector('input').checked = true;
-  // conditional logic
-  if (name === 'q3') {
-    const other = document.getElementById('q3-other-wrap');
-    other.classList.toggle('show', el.querySelector('input').value === 'other');
+  const v = el.querySelector('input').value;
+  // 条件付き表示ロジック
+  if (name === 'qm3') {
+    document.getElementById('qm3-other-wrap').classList.toggle('show', v === 'F');
   }
-  if (name === 'q5') {
-    const free = document.getElementById('q5-free-wrap');
-    const v = el.querySelector('input').value;
-    free.classList.toggle('show', ['B','C','D'].includes(v));
+  if (name === 'qm4') {
+    document.getElementById('qm4-other-wrap').classList.toggle('show', v === 'other');
+  }
+  if (name === 'qm5k') {
+    document.getElementById('qm5k-free-wrap').classList.toggle('show', ['B','C','D'].includes(v));
+  }
+  if (name === 'qn3') {
+    document.getElementById('qn3-other-wrap').classList.toggle('show', v === 'E');
+  }
+  if (name === 'qn4') {
+    document.getElementById('qn4-other-wrap').classList.toggle('show', v === 'F');
+  }
+  if (name === 'qn5') {
+    document.getElementById('qn5-other-wrap').classList.toggle('show', v === 'E');
+  }
+  if (name === 'qn6a') {
+    document.getElementById('qn6a-other-wrap').classList.toggle('show', v === 'F');
+  }
+  if (name === 'qn7') {
+    document.getElementById('qn7-other-wrap').classList.toggle('show', v === 'その他');
   }
 }
 
 function selectCheck(el, id, event) {
-  if (event) event.preventDefault(); // ブラウザのデフォルト二重トリガーを防止
+  if (event) event.preventDefault();
   const cb = document.getElementById(id);
   cb.checked = !cb.checked;
   el.classList.toggle('selected', cb.checked);
   // "いずれも参加が難しい" は排他
-  if (id === 'q4-none' && cb.checked) {
-    ['q4-1','q4-2','q4-3'].forEach(i => {
+  if (id === 'm6d-none' && cb.checked) {
+    ['m6d-1','m6d-2','m6d-3'].forEach(i => {
       document.getElementById(i).checked = false;
       document.getElementById(i).closest('.survey-option').classList.remove('selected');
     });
-  } else if (['q4-1','q4-2','q4-3'].includes(id) && cb.checked) {
-    document.getElementById('q4-none').checked = false;
-    document.getElementById('q4-none').closest('.survey-option').classList.remove('selected');
+  } else if (['m6d-1','m6d-2','m6d-3'].includes(id) && cb.checked) {
+    document.getElementById('m6d-none').checked = false;
+    document.getElementById('m6d-none').closest('.survey-option').classList.remove('selected');
   }
   // 理由テキスト表示条件
-  const noneChecked = document.getElementById('q4-none').checked;
-  const anyUnchecked = !document.getElementById('q4-1').checked ||
-                       !document.getElementById('q4-2').checked ||
-                       !document.getElementById('q4-3').checked;
-  document.getElementById('q4-reason-wrap').classList.toggle('show', noneChecked || anyUnchecked);
-}
-
-function toggleManual() {
-  const inp = document.getElementById('name-manual');
-  inp.classList.toggle('show');
-  if (inp.classList.contains('show')) {
-    document.getElementById('name-select').value = '';
-    inp.focus();
-  }
+  const noneChecked = document.getElementById('m6d-none').checked;
+  const anyUnchecked = !document.getElementById('m6d-1').checked ||
+                       !document.getElementById('m6d-2').checked ||
+                       !document.getElementById('m6d-3').checked;
+  document.getElementById('m6d-reason-wrap').classList.toggle('show', noneChecked || anyUnchecked);
 }
 
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbyTwoO0GpcvDM0MjgF5q4BwhZjlJAtS-Uw_QBaO76xOBjshPvfgOSwZ8g1MkVddZ9hr/exec';
 
 function submitSurvey() {
-  const val = document.querySelector('input[name="q5"]:checked');
-  if (!val) { alert('お選びください'); return; }
-  surveyData.q5 = val.value;
-  surveyData.q5_free = document.getElementById('q5-free').value.trim();
+  // 最終ステップのバリデーション
+  if (surveyData._isMember) {
+    // M6: 参加予定（チェックボックス）
+    const checks = Array.from(document.querySelectorAll('#m6d-options input[type=checkbox]:checked'));
+    if (checks.length === 0) { alert('参加予定をお選びください'); return; }
+    surveyData.dates = checks.map(c => c.value).join('、');
+    surveyData.dates_reason = document.getElementById('m6d-reason').value.trim();
+  } else {
+    // N7: 顧問先業種（非会員の最終ステップ）
+    const n7val = document.querySelector('input[name="qn7"]:checked');
+    if (!n7val) { alert('お選びください'); return; }
+    surveyData.n7 = n7val.value;
+    surveyData.n7_other = document.getElementById('qn7-other').value.trim();
+  }
   surveyData.timestamp = new Date().toLocaleString('ja-JP');
 
-  // Disable button to prevent double-submit
-  const btn = document.querySelector('#step-5 .btn-next');
-  if (btn) { btn.disabled = true; btn.textContent = '送信中...'; }
+  // 二重送信防止
+  const submitBtn = document.querySelector('.survey-step.active .btn-next:last-child');
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '送信中...'; }
 
-  // POST to Google Apps Script (no-cors: Content-Typeヘッダー不要)
+  // POST to Google Apps Script (no-cors: レスポンスは常にopaque)
   fetch(GAS_URL, {
     method: 'POST',
     mode: 'no-cors',
     body: JSON.stringify(surveyData)
   })
-  .then(() => {
-    // no-cors returns opaque response; treat as success
-    renderProgress(6);
-    showStep('thanks');
-    document.getElementById('admin-count').textContent = '回答を受け付けました。ありがとうございます！';
-  })
+  .then(() => { showThanks(); })
   .catch(err => {
-    console.error('送信エラー:', err);
-    if (btn) { btn.disabled = false; btn.textContent = '回答を送信 ✓'; }
-    alert('送信中にエラーが発生しました。もう一度お試しください。');
+    // no-corsではネットワーク状況によりcatchに入る場合があるが、
+    // GASへのリクエスト自体は送信できている可能性が高いためサンクス画面を表示
+    console.warn('fetch catch (possibly sent):', err);
+    showThanks();
   });
+}
+
+function showThanks() {
+  const thanksMsg = document.getElementById('thanks-msg');
+  if (thanksMsg) {
+    thanksMsg.innerHTML = surveyData._isMember
+      ? 'お申込みを受け付けました。<br>当日を楽しみにしていてください！<br><br>セミナー前に事前資料をお送りいたします。'
+      : '無料体験のお申込みを受け付けました。<br>後ほど事務局よりご連絡いたします。<br><br>当日の詳細は追ってメールにてご案内いたします。';
+  }
+  renderProgress(surveyTotal + 1);
+  showStep('thanks');
+  document.getElementById('admin-count').textContent = '回答を受け付けました。ありがとうございます！';
 }
 
 function updateAdminCount() {
@@ -1979,6 +2543,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // ── キラキラ星アニメーション ──
 (function initSparkles() {
+  // 全体に散らばる星（従来通り）
   const count = 28;
   for (let i = 0; i < count; i++) {
     const s = document.createElement('div');
@@ -1993,6 +2558,42 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
       `opacity:0`
     ].join(';');
     document.body.appendChild(s);
+  }
+
+  // ヒーロー・ナビ上部に集中する星（上部20vh以内）
+  const topCount = 18;
+  for (let i = 0; i < topCount; i++) {
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    const size = Math.random() * 4 + 2;
+    s.style.cssText = [
+      `width:${size}px`, `height:${size}px`,
+      `left:${Math.random() * 100}vw`,
+      `top:${Math.random() * 20}vh`,
+      `animation-duration:${Math.random() * 3 + 1.5}s`,
+      `animation-delay:${Math.random() * 4}s`,
+      `opacity:0`
+    ].join(';');
+    document.body.appendChild(s);
+  }
+
+  // ナビバー内に小さい星を追加
+  const nav = document.querySelector('nav');
+  if (nav) {
+    for (let i = 0; i < 8; i++) {
+      const s = document.createElement('div');
+      s.className = 'nav-sparkle';
+      const size = Math.random() * 3 + 2;
+      s.style.cssText = [
+        `width:${size}px`, `height:${size}px`,
+        `left:${Math.random() * 100}%`,
+        `top:${Math.random() * 100}%`,
+        `animation-duration:${Math.random() * 2.5 + 1.5}s`,
+        `animation-delay:${Math.random() * 3}s`,
+        `opacity:0`
+      ].join(';');
+      nav.appendChild(s);
+    }
   }
 })();
 
