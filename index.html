@@ -1606,7 +1606,7 @@
         <div class="survey-step-label">Step 2 / 7</div>
         <div class="survey-q">お名前・ご連絡先をご入力ください</div>
         <div class="survey-q-sub">無料体験のご参加に必要な情報をご入力ください</div>
-        <input class="name-manual-input show" id="n1-office" type="text" placeholder="事業所名（任意）" style="margin-bottom:10px;">
+        <input class="name-manual-input show" id="n1-office" type="text" placeholder="事業所名（必須）" style="margin-bottom:10px;">
         <input class="name-manual-input show" id="n1-name" type="text" placeholder="お名前（必須）" style="margin-bottom:10px;">
         <input class="name-manual-input show" id="n1-kana" type="text" placeholder="ふりがな（必須）" style="margin-bottom:10px;">
         <input class="name-manual-input show" id="n1-email" type="email" placeholder="メールアドレス（必須）" style="margin-bottom:10px;">
@@ -1624,10 +1624,11 @@
         <div class="survey-q">参加を希望する回をお選びください</div>
         <div class="survey-q-sub">お一人様1回のみ無料でご参加いただけます</div>
         <div class="survey-options" id="qn1b-options">
-          <label class="survey-option" onclick="selectRadio(this,'qn1b')">
-            <input type="radio" name="qn1b" value="4/13（月）18:00〜20:00">
+          <label class="survey-option" style="opacity:0.45; pointer-events:none; position:relative;">
+            <input type="radio" name="qn1b" value="4/13（月）18:00〜20:00" disabled>
             <span class="survey-opt-mark"></span>
             <span class="survey-opt-label"><span class="survey-opt-key">第1回</span>4/13（月）18:00〜20:00　破壊と体験</span>
+            <span style="display:block; color:#ff6b6b; font-size:0.78em; margin-top:6px;">ご好評につき定員に達しました。ありがとうございます。</span>
           </label>
           <label class="survey-option" onclick="selectRadio(this,'qn1b')">
             <input type="radio" name="qn1b" value="4/20（月）18:00〜20:00">
@@ -2380,9 +2381,11 @@ function goNext(step) {
 
   // ── 非会員フロー ──
   } else if (step === 'n1') {
+    const office = document.getElementById('n1-office').value.trim();
     const name = document.getElementById('n1-name').value.trim();
     const kana = document.getElementById('n1-kana').value.trim();
     const email = document.getElementById('n1-email').value.trim();
+    if (!office) { alert('事業所名をご入力ください'); return; }
     if (!name) { alert('お名前をご入力ください'); return; }
     if (!kana) { alert('ふりがなをご入力ください'); return; }
     if (!email || !email.includes('@')) { alert('正しいメールアドレスをご入力ください'); return; }
